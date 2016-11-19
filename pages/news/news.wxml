@@ -1,0 +1,27 @@
+<import is="news_list" src="../common/news_list.wxml" />
+<template name="list">
+  <template is="nav" data="{{menu}}"></template>
+  <template is="content" data="{{news, flag}}"></template>
+</template>
+
+<!--nav导航-->
+<template name="nav">
+  <scroll-view scroll-x="true" class="nav">
+    <block wx:for="{{menu}}" wx:key="value">
+      <view class="nav-item {{item.active ? 'active' : ''}}" bindtap="bindMenu" data-name="{{item.value}}">{{item.name}}</view>
+    </block>
+  </scroll-view>
+</template>
+
+<template name="content">
+  <view class="content">
+    <template is="news_list" data="{{news}}"></template>
+  </view>
+</template>
+
+<!--loading-->
+<loading hidden="{{hidden}}">数据加载中....</loading>
+
+<view class="container">
+  <template is="list" data="{{menu, news, flag}}"></template>
+</view>

@@ -1,0 +1,17 @@
+<template name="news_list">
+  <view class="news_list">
+    <block wx:for="{{news}}" wx:key="title">
+      <view class="news_list__item">
+        <view class="news_list__item__body">
+          <view class="news_list__item__title">{{item.title}}</view>
+          <view class="news_list__item__sub_title">{{item.category}} {{item.date}}</view>
+        </view>
+        <view class="news_list__item__footer">
+          <view class="news_list__item__avatar">
+            <image src="{{item.thumbnail_pic_s03}}" />
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>
